@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連結不存在 - 404 錯誤</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full text-center fade-in">
+        <!-- 404 圖示 -->
+        <div class="mb-8">
+            <svg class="w-32 h-32 mx-auto text-indigo-400 bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+            </svg>
+        </div>
+        
+        <!-- 主要內容 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
+            <h1 class="text-6xl font-bold text-gray-800 mb-4">404</h1>
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">找不到短縮連結</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                抱歉，您要尋找的短縮連結不存在或已過期。<br>
+                請檢查連結是否正確，或聯繫分享者確認。
+            </p>
+            
+            <!-- 可能的原因 -->
+            <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                <h3 class="font-semibold text-gray-700 mb-2">可能的原因：</h3>
+                <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• 連結已過期或被刪除</li>
+                    <li>• 連結輸入錯誤</li>
+                    <li>• 連結已被停用</li>
+                </ul>
+            </div>
+            
+            <!-- 操作按鈕 -->
+            <div class="space-y-3">
+                <button onclick="goBack()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 transform hover:scale-105">
+                    返回上一頁
+                </button>
+            </div>
+        </div>
+        
+        <!-- 底部資訊 -->
+        <div class="text-gray-500 text-sm">
+            <p>需要協助？請聯繫 <a href="mailto:service@walking-cat.com" class="text-indigo-600 hover:text-indigo-800 underline">客服支援</a></p>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            // 嘗試返回上一頁，如果沒有歷史記錄則顯示提示
+            try {
+                window.history.back();
+                // 設定一個短暫的延遲來檢查是否真的返回了
+                setTimeout(() => {
+                    // 如果還在同一頁面，顯示提示
+                    if (window.location.href === window.location.href) {
+                        console.log('已嘗試返回上一頁');
+                    }
+                }, 100);
+            } catch (error) {
+                alert('無法返回上一頁');
+            }
+        }
+        
+
+        
+        // 添加一些互動效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為按鈕添加點擊效果
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987b990510628276',t:'MTc1OTMxNzkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
